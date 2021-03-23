@@ -31,19 +31,19 @@
 	icon_state = "mind_hub"
 	desc = "A strange large clockwork device consisting of screw drives, belts, pulleys, gears, springs and other clockwork. It contains a copper panel with a large knob with a small arrow attached to the front, and a keyhole below to activate it."
 	var/atom/movable/intakeItem = null
-    var/atom/movable/outputItem = null
-    var/outputAmount = 1
-    var/obj/machinery/scp_914/pod/intake/intakePod
+	var/atom/movable/outputItem = null
+	var/outputAmount = 1
+	var/obj/machinery/scp_914/pod/intake/intakePod
 	var/obj/machinery/scp_914/pod/output/outputPod
-    var/podsConnected = FALSE
+	var/podsConnected = FALSE
 	var/lockedPods = FALSE
 	var/currentlyProcessing = FALSE
 	var/itemProgress = 0
-    var/processType = STATE_EQUAL
+	var/processType = STATE_EQUAL
 
 /obj/machinery/scp_914/hub/New()
-    ..()
-    findConnections()
+	..()
+	findConnections()
 
 /obj/machinery/scp_914/hub/proc/findConnections() //Finds and links the hub with the pods on either side
 	intakePod = findIntakePod()
@@ -92,23 +92,23 @@
 /obj/machinery/scp_914/hub/Topic(href, href_list)
 	if(..())
 		return
-	if(!intakePod.Adjacent(src) || !outputPod.Adjacent(src) || !intakePod.anchored || !outputPod.anchored) || currentlyProcessing)
+	if(!intakePod.Adjacent(src) || !outputPod.Adjacent(src) || !intakePod.anchored || !outputPod.anchored || currentlyProcessing)
 		return
 
-    if(href_list["activate"] && intakeItem && lockedPods)
-        processItem()
+	if(href_list["activate"] && intakeItem && lockedPods)
+		processItem()
 		return
 
-    if(href_list["lockpods"])
-        lockedPods = !lockedPods
+	if(href_list["lockpods"])
+		lockPods()
 		return
-    
+
 	if(href_list["decrement"])
-        decrementType()
+		decrementType()
 		return
 
 	if(href_list["increment"])
-        incrementType()
+		incrementType()
 		return
 
 /obj/machinery/scp_914/hub/proc/decrementType()
@@ -134,16 +134,16 @@
             processType = STATE_VFINE
 
 /obj/machinery/scp_914/hub/proc/lockPods()
-    lockedPods = TRUE
-    playsound(intakePod, 'sound/machines/poddoor.ogg', 55, 1)
-    playsound(outputPod, 'sound/machines/poddoor.ogg', 55, 1)
-    flick("mind_pod_closing",intakePod)
-    intakePod.icon_state = "mind_pod_closed"
-    flick("mind_pod_closing",outputPod)
-    outputPod.icon_state = "mind_pod_closed"
+	lockedPods = TRUE
+	playsound(intakePod, 'sound/machines/poddoor.ogg', 55, 1)
+	playsound(outputPod, 'sound/machines/poddoor.ogg', 55, 1)
+	flick("mind_pod_closing",intakePod)
+	intakePod.icon_state = "mind_pod_closed"
+	flick("mind_pod_closing",outputPod)
+	outputPod.icon_state = "mind_pod_closed"
 
 /obj/machinery/scp_914/hub/proc/unlockPods()
-    intakePod.icon_state = "mind_pod_open"
+	intakePod.icon_state = "mind_pod_open"
 	outputPod.icon_state = "mind_pod_open"
 	playsound(outputPod, 'sound/machines/door_unbolt.ogg', 35, 1)
 	playsound(intakePod, 'sound/machines/door_unbolt.ogg', 35, 1)
@@ -156,25 +156,25 @@
 	outputPod.go_out()
 
 /obj/machinery/scp_914/hub/proc/processItem()
-    if(!lockedPods)
+	if(!lockedPods)
 		return
-    currentlyProcessing = TRUE
-    playsound(intakePod, 'sound/effects/sparks4.ogg', 80, 1)
+	currentlyProcessing = TRUE
+	playsound(intakePod, 'sound/effects/sparks4.ogg', 80, 1)
 	playsound(outputPod, 'sound/effects/sparks4.ogg', 80, 1)
-    icon_state = "mind_hub_active"
+	icon_state = "mind_hub_active"
 	intakePod.icon_state = "mind_pod_active"
 	outputPod.icon_state = "mind_pod_active"
-    intakePod.currentItem.forceMove(src)
-    if (ishuman(intakeItem))
-        var/mob/living/carbon/human/H = intakeItem
-        H.reset_view()
-        //TODO: Turn off suit sensors and GPSes, like in SCP
-    sleep(10 SECONDS)
-    convertItem()
-    outputPod.currentItem = outputItem
-    intakePod.currentItem = null
-    unlockPods()
-    ejectPods()
+	intakePod.currentItem.forceMove(src)
+	if (ishuman(intakeItem))
+		var/mob/living/carbon/human/H = intakeItem
+		H.reset_view()
+		//TODO: Turn off suit sensors and GPSes, like in SCP
+	sleep(10 SECONDS)
+	convertItem()
+	outputPod.currentItem = outputItem
+	intakePod.currentItem = null
+	unlockPods()
+	ejectPods()
 
 // This function is where the real fun happens
 /obj/machinery/scp_914/hub/proc/convertItem()
@@ -189,15 +189,15 @@
                 outputItem = H
                 // Gib them
                 //H.gib()
-            if(istype((intakeItem,/obj/item/stack/sheet/metal))
+            if(istype(intakeItem,/obj/item/stack/sheet/metal))
                 outputItem = new /obj/item/stack/ore/iron
-            if(istype((intakeItem,/obj/item/stack/sheet/plasma))
+            if(istype(intakeItem,/obj/item/stack/sheet/mineral/plasma))
                 outputItem = new /obj/item/stack/ore/plasma
-            if(istype((intakeItem,/obj/item/stack/sheet/glass))
+            if(istype(intakeItem,/obj/item/stack/sheet/glass))
                 outputItem = new /obj/item/stack/ore/glass
-            if(istype((intakeItem,/obj/item/stack/sheet/gold))
+            if(istype(intakeItem,/obj/item/stack/sheet/mineral/gold))
                 outputItem = new /obj/item/stack/ore/gold
-            if(istype((intakeItem,/obj/item/stack/sheet/silver))
+            if(istype(intakeItem,/obj/item/stack/sheet/mineral/silver))
                 outputItem = new /obj/item/stack/ore/silver
         if(STATE_ROUGH)
             // If input item is humanoid
@@ -207,10 +207,10 @@
                 scramble(1,H,100)
                 // Seriously damage them
                 H.adjustBruteLoss(100)
-                H.adjustBurnLoss(100)
+                H.adjustFireLoss(100)
 
                 outputItem = H
-            if(istype((intakeItem,/obj/item/stack/sheet/metal))
+            if(istype(intakeItem,/obj/item/stack/sheet/metal))
                 outputItem = new /obj/item/stack/rods
         if(STATE_EQUAL)
             // If input item is humanoid
@@ -228,7 +228,7 @@
                 var/mob/living/carbon/human/H = intakeItem
                 // Partially heal
                 H.adjustBruteLoss(-H.getBruteLoss())
-                H.adjustBurnLoss(-H.getBurnLoss())
+                H.adjustFireLoss(-H.getFireLoss())
                 // Scramble UI+UE
                 scramble(1,H,100)
                 // Activate powers
@@ -251,7 +251,7 @@
                 H.update_mutations()
 
                 outputItem = H
-            if(istype((intakeItem,/obj/item/stack/sheet/metal))
+            if(istype(intakeItem,/obj/item/stack/sheet/metal))
                 outputItem = new /obj/item/stack/sheet/plasteel
         if(STATE_VFINE)
             // If input item is humanoid
@@ -286,7 +286,7 @@
                 if(H.mind && !isantagbanned(H))
                     for(var/datum/role/R in H.mind.antag_roles)
                         // If already in a faction, don't give this role
-			            if(R.faction)
+                        if(R.faction)
                             outputItem = H
                             return
                     var/datum/role/survivor/newSurvivor = new
@@ -299,7 +299,6 @@
     // Failsafe in case nothing is set
     if (!outputItem)
         outputItem = intakeItem
-            
 
 /obj/machinery/scp_914/hub/Destroy()
 	if(intakePod)
@@ -318,10 +317,10 @@
 	desc = "A large booth connected via copper tubes to the main body next to it."
 	var/podNumber = 0
 	var/obj/machinery/scp_914/hub/connectedHub
-    var/atom/movable/currentItem = null
+	var/atom/movable/currentItem = null
 
 /obj/machinery/scp_914/pod/Destroy()
-    go_out()
+	go_out()
 	if(connectedHub)
 		connectedHub.podsConnected = FALSE
 		switch(podNumber)
@@ -343,7 +342,7 @@
 
 /obj/machinery/scp_914/pod/intake
 	name = "Intake"
-	desc += " This one is labelled \"Intake\"."
+	desc = "A large booth connected via copper tubes to the main body next to it. This one is labelled \"Intake\"."
 
 /obj/machinery/scp_914/pod/intake/MouseDropTo(atom/movable/O, mob/user)
 	if(connectedHub.lockedPods)
@@ -362,7 +361,7 @@
 	if(currentItem)
 		to_chat(user, "<span class='notice'>The pod is already occupied!</span>")
 		return
-	if(!istype(L))
+	if(!istype(O))
 		return
 	if(O == user)
 		visible_message("<span class='notice'>[user] climbs into \the [src].</span>")
@@ -391,7 +390,7 @@
 			if((A == src))
 				continue
 			return
-	if(occupant == usr)
+	if(currentItem == usr)
 		visible_message("<span class='notice'>[usr] climbs out of the \the [src]</span>")
 	else
 		visible_message("<span class='notice'>[usr] pulls [currentItem.name] out of \the [src].</span>")
@@ -409,12 +408,12 @@
 
 /obj/machinery/scp_914/pod/output
 	name = "Output"
-	desc += " This one is labelled \"Output\"."
+	desc = "A large booth connected via copper tubes to the main body next to it. This one is labelled \"Output\"."
 
 /obj/machinery/scp_914/pod/output/go_out(var/exit = src.loc, var/mob/ejector)
 	..()
-    // Handle this after ejection
-    if (ishuman(connectedHub.outputItem) && connectedHub.processType == STATE_COARSE)
-        var/mob/living/carbon/human/H = connectedHub,outputItem
-        H.gib()
+	// Handle this after ejection
+	if (ishuman(connectedHub.outputItem) && connectedHub.processType == STATE_COARSE)
+		var/mob/living/carbon/human/H = connectedHub,outputItem
+		H.gib()
 	connectedHub.outputItem = null
