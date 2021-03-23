@@ -1,0 +1,420 @@
+//////////////////////////////////////////
+//				SCP 914					//
+//										//
+//	This functions similarly to a mind	//
+//  machine device, but with only one   //
+//  usable pod. Info of how it works is //
+//  at http://www.scp-wiki.net/scp-914	//
+//                                      //
+//////////////////////////////////////////
+
+/obj/machinery/scp_914
+	name = "\improper strange machine"
+	icon = 'icons/obj/mind_machine.dmi'
+	density = 1
+	anchored = 1
+	use_power = 1
+	idle_power_usage = 50
+	active_power_usage = 2000
+	light_power_on = 1
+	machine_flags = FIXED2WORK | WRENCHMOVE
+	mech_flags = MECH_SCAN_FAIL
+
+#define STATE_COARSE "Coarse"
+#define STATE_ROUGH "Rough"
+#define STATE_EQUAL "1:1"
+#define STATE_FINE "Fine"
+#define STATE_VFINE "Very Fine"
+
+/obj/machinery/scp_914/hub
+	name = "\improper strange machine hub"
+	icon_state = "mind_hub"
+	desc = "A strange large clockwork device consisting of screw drives, belts, pulleys, gears, springs and other clockwork. It contains a copper panel with a large knob with a small arrow attached to the front, and a keyhole below to activate it."
+	var/atom/movable/intakeItem = null
+    var/atom/movable/outputItem = null
+    var/outputAmount = 1
+    var/obj/machinery/scp_914/pod/intake/intakePod
+	var/obj/machinery/scp_914/pod/output/outputPod
+    var/podsConnected = FALSE
+	var/lockedPods = FALSE
+	var/currentlyProcessing = FALSE
+	var/itemProgress = 0
+    var/processType = STATE_EQUAL
+
+/obj/machinery/scp_914/hub/New()
+    ..()
+    findConnections()
+
+/obj/machinery/scp_914/hub/proc/findConnections() //Finds and links the hub with the pods on either side
+	intakePod = findIntakePod()
+	if(intakePod)
+		intakePod.connectedHub = src
+		intakePod.podNumber = 1
+	outputPod = findOutputPod()
+	if(outputPod)
+		outputPod.connectedHub = src
+		outputPod.podNumber = 2
+	if ((intakePod) && (outputPod))
+		podsConnected = TRUE
+
+/obj/machinery/scp_914/hub/proc/findIntakePod()
+	for(var/obj/machinery/scp_914/pod/intake/CO in orange(1,src))
+		if(CO != outputPod && CO.anchored)
+			return CO
+
+/obj/machinery/scp_914/hub/proc/findOutputPod()
+	for(var/obj/machinery/scp_914/pod/output/CT in orange(1,src))
+		if(CT != intakePod && CT.anchored)
+			return CT
+
+/obj/machinery/scp_914/hub/attack_hand(mob/user)
+	if(!podsConnected || !intakePod || !outputPod)
+		resetConnections(user)
+	if(!currentlyProcessing)
+		if(!intakePod.Adjacent(src) || !outputPod.Adjacent(src))
+			resetConnections(user)
+	if(!podsConnected)
+		to_chat(user, "<span class='notice'>Pod connection error.</span>")
+		return	//No UI without pods
+	user.set_machine(src)
+
+	var/dat = {"<center><p>Current Item: [intakeItem != null ? intakeItem : "None"]</p><br><p>Item setting: <a href='?src=\ref[src];decrement=1'>-</a> [processType] <a href='?src=\ref[src];increment=1'>+</a></p><br><p><a href='?src=\ref[src];activate=1'>Activate [src]</a></p><br><p><a href='?src=\ref[src];lockpods=1'>[lockedPods ? "Lock" : "Unlock"] the [src]</a></p>"}
+	user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=scp914;size=350x300")
+	//onclose(user, "scp914")
+
+/obj/machinery/scp_914/hub/proc/resetConnections(mob/user)
+		to_chat(user, "<span class='notice'>Establishing pod connections.</span>")
+		podsConnected = FALSE
+		intakePod = FALSE
+		outputPod = FALSE
+		findConnections()
+
+/obj/machinery/scp_914/hub/Topic(href, href_list)
+	if(..())
+		return
+	if(!intakePod.Adjacent(src) || !outputPod.Adjacent(src) || !intakePod.anchored || !outputPod.anchored) || currentlyProcessing)
+		return
+
+    if(href_list["activate"] && intakeItem && lockedPods)
+        processItem()
+		return
+
+    if(href_list["lockpods"])
+        lockedPods = !lockedPods
+		return
+    
+	if(href_list["decrement"])
+        decrementType()
+		return
+
+	if(href_list["increment"])
+        incrementType()
+		return
+
+/obj/machinery/scp_914/hub/proc/decrementType()
+    switch(processType)
+        if(STATE_VFINE)
+            processType = STATE_FINE
+        if(STATE_FINE)
+            processType = STATE_EQUAL
+        if(STATE_EQUAL)
+            processType = STATE_ROUGH
+        if(STATE_ROUGH)
+            processType = STATE_COARSE
+
+/obj/machinery/scp_914/hub/proc/incrementType()
+    switch(processType)
+        if(STATE_COARSE)
+            processType = STATE_ROUGH
+        if(STATE_ROUGH)
+            processType = STATE_EQUAL
+        if(STATE_EQUAL)
+            processType = STATE_FINE
+        if(STATE_FINE)
+            processType = STATE_VFINE
+
+/obj/machinery/scp_914/hub/proc/lockPods()
+    lockedPods = TRUE
+    playsound(intakePod, 'sound/machines/poddoor.ogg', 55, 1)
+    playsound(outputPod, 'sound/machines/poddoor.ogg', 55, 1)
+    flick("mind_pod_closing",intakePod)
+    intakePod.icon_state = "mind_pod_closed"
+    flick("mind_pod_closing",outputPod)
+    outputPod.icon_state = "mind_pod_closed"
+
+/obj/machinery/scp_914/hub/proc/unlockPods()
+    intakePod.icon_state = "mind_pod_open"
+	outputPod.icon_state = "mind_pod_open"
+	playsound(outputPod, 'sound/machines/door_unbolt.ogg', 35, 1)
+	playsound(intakePod, 'sound/machines/door_unbolt.ogg', 35, 1)
+	flick("mind_pod_opening", intakePod)
+	flick("mind_pod_opening", outputPod)
+	lockedPods = FALSE
+
+/obj/machinery/scp_914/hub/proc/ejectPods()
+	intakePod.go_out()
+	outputPod.go_out()
+
+/obj/machinery/scp_914/hub/proc/processItem()
+    if(!lockedPods)
+		return
+    currentlyProcessing = TRUE
+    playsound(intakePod, 'sound/effects/sparks4.ogg', 80, 1)
+	playsound(outputPod, 'sound/effects/sparks4.ogg', 80, 1)
+    icon_state = "mind_hub_active"
+	intakePod.icon_state = "mind_pod_active"
+	outputPod.icon_state = "mind_pod_active"
+    intakePod.currentItem.forceMove(src)
+    if (ishuman(intakeItem))
+        var/mob/living/carbon/human/H = intakeItem
+        H.reset_view()
+        //TODO: Turn off suit sensors and GPSes, like in SCP
+    sleep(10 SECONDS)
+    convertItem()
+    outputPod.currentItem = outputItem
+    intakePod.currentItem = null
+    unlockPods()
+    ejectPods()
+
+// This function is where the real fun happens
+/obj/machinery/scp_914/hub/proc/convertItem()
+    // Reset variables
+    outputItem = null
+    outputAmount = 1
+    switch(processType)
+        if(STATE_COARSE)
+            // If input item is humanoid
+            if(ishuman(intakeItem))
+                var/mob/living/carbon/human/H = intakeItem
+                outputItem = H
+                // Gib them
+                //H.gib()
+            if(istype((intakeItem,/obj/item/stack/sheet/metal))
+                outputItem = new /obj/item/stack/ore/iron
+            if(istype((intakeItem,/obj/item/stack/sheet/plasma))
+                outputItem = new /obj/item/stack/ore/plasma
+            if(istype((intakeItem,/obj/item/stack/sheet/glass))
+                outputItem = new /obj/item/stack/ore/glass
+            if(istype((intakeItem,/obj/item/stack/sheet/gold))
+                outputItem = new /obj/item/stack/ore/gold
+            if(istype((intakeItem,/obj/item/stack/sheet/silver))
+                outputItem = new /obj/item/stack/ore/silver
+        if(STATE_ROUGH)
+            // If input item is humanoid
+            if(ishuman(intakeItem))
+                var/mob/living/carbon/human/H = intakeItem
+                // Scramble UI+UE
+                scramble(1,H,100)
+                // Seriously damage them
+                H.adjustBruteLoss(100)
+                H.adjustBurnLoss(100)
+
+                outputItem = H
+            if(istype((intakeItem,/obj/item/stack/sheet/metal))
+                outputItem = new /obj/item/stack/rods
+        if(STATE_EQUAL)
+            // If input item is humanoid
+            if(ishuman(intakeItem))
+                var/mob/living/carbon/human/H = intakeItem
+                // Scramble UI+UE
+                scramble(1,H,100)
+                outputItem = H
+                return
+            // In other cases, item comes out the same, but reinstated
+            outputItem = new intakeItem.type
+        if(STATE_FINE)
+            // If input item is humanoid
+            if(ishuman(intakeItem))
+                var/mob/living/carbon/human/H = intakeItem
+                // Partially heal
+                H.adjustBruteLoss(-H.getBruteLoss())
+                H.adjustBurnLoss(-H.getBurnLoss())
+                // Scramble UI+UE
+                scramble(1,H,100)
+                // Activate powers
+                H.dna.SetSEState(XRAYBLOCK,1)
+                H.dna.SetSEState(TELEBLOCK,1)
+                H.dna.SetSEState(HULKBLOCK,1)
+                H.dna.SetSEState(INCREASERUNBLOCK,1)
+                H.dna.SetSEState(SMALLSIZEBLOCK,1)
+                H.dna.SetSEState(COLDBLOCK,1)
+                H.dna.SetSEState(NOBREATHBLOCK,1)
+                H.dna.SetSEState(FIREBLOCK,1)
+                genemutcheck(H,XRAYBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,TELEBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,HULKBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,INCREASERUNBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,SMALLSIZEBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,COLDBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,NOBREATHBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,FIREBLOCK,null,MUTCHK_FORCED)
+                H.update_mutations()
+
+                outputItem = H
+            if(istype((intakeItem,/obj/item/stack/sheet/metal))
+                outputItem = new /obj/item/stack/sheet/plasteel
+        if(STATE_VFINE)
+            // If input item is humanoid
+            if(ishuman(intakeItem))
+                var/mob/living/carbon/human/H = intakeItem
+                // Call hivelord core esque rejeuvenate
+                H.revive()
+                // Scramble UI+UE
+                scramble(1,H,100)
+                // Activate powers
+                H.dna.SetSEState(XRAYBLOCK,1)
+                H.dna.SetSEState(TELEBLOCK,1)
+                H.dna.SetSEState(INCREASERUNBLOCK,1)
+                H.dna.SetSEState(SMALLSIZEBLOCK,1)
+                H.dna.SetSEState(COLDBLOCK,1)
+                H.dna.SetSEState(NOBREATHBLOCK,1)
+                H.dna.SetSEState(FIREBLOCK,1)
+                genemutcheck(H,XRAYBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,TELEBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,INCREASERUNBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,SMALLSIZEBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,COLDBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,NOBREATHBLOCK,null,MUTCHK_FORCED)
+                genemutcheck(H,FIREBLOCK,null,MUTCHK_FORCED)
+                H.update_mutations()
+                // Add spells
+                // TODO: pick 6 or so spells at random and give them
+
+                // Add creatine so the player "dissolves" after a while, like in the SCP
+                H.reagents.add_reagent(CREATINE, 30)
+                // Finally, make survivor antag role, to emulate effects of attacking people like in the SCP
+                if(H.mind && !isantagbanned(H))
+                    for(var/datum/role/R in H.mind.antag_roles)
+                        // If already in a faction, don't give this role
+			            if(R.faction)
+                            outputItem = H
+                            return
+                    var/datum/role/survivor/newSurvivor = new
+                    newSurvivor.AssignToRole(H.mind,1)
+                    newSurvivor.OnPostSetup()
+                    newSurvivor.Greet()
+                    newSurvivor.ForgeObjectives()
+                    newSurvivor.AnnounceObjectives()
+                outputItem = H
+    // Failsafe in case nothing is set
+    if (!outputItem)
+        outputItem = intakeItem
+            
+
+/obj/machinery/scp_914/hub/Destroy()
+	if(intakePod)
+		intakePod.connectedHub = null
+		intakePod.podNumber = 0
+		intakePod = null
+	if(outputPod)
+		outputPod.connectedHub = null
+		outputPod.podNumber = 0
+		outputPod = null
+	. = ..()
+
+/obj/machinery/scp_914/pod
+	name = "\improper strange machine pod"
+	icon_state = "mind_pod_open"
+	desc = "A large booth connected via copper tubes to the main body next to it."
+	var/podNumber = 0
+	var/obj/machinery/scp_914/hub/connectedHub
+    var/atom/movable/currentItem = null
+
+/obj/machinery/scp_914/pod/Destroy()
+    go_out()
+	if(connectedHub)
+		connectedHub.podsConnected = FALSE
+		switch(podNumber)
+			if(1)
+				connectedHub.intakePod = null
+			if(2)
+				connectedHub.outputPod = null
+	..()
+
+/obj/machinery/scp_914/pod/proc/go_out(var/exit = src.loc, var/mob/ejector)
+	if(!currentItem)
+		for(var/atom/movable/M in contents)
+			M.forceMove(get_turf(src))
+		return 0
+	if(!currentItem.gcDestroyed)
+		currentItem.forceMove(exit)
+		//currentItem.reset_view()
+	currentItem = null
+
+/obj/machinery/scp_914/pod/intake
+	name = "Intake"
+	desc += " This one is labelled \"Intake\"."
+
+/obj/machinery/scp_914/pod/intake/MouseDropTo(atom/movable/O, mob/user)
+	if(connectedHub.lockedPods)
+		to_chat(user, "<span class='notice'>The pod is locked tight!</span>")
+		return
+	if(!isturf(O.loc) || !isturf(user.loc) || !user.Adjacent(O))
+		return
+	if(user.incapacitated() || user.lying)
+		return
+	if(!Adjacent(user) || !user.Adjacent(src) || user.contents.Find(src))
+		return
+	if(O.anchored)
+		return
+	if(!ishigherbeing(user) && !isrobot(user))
+		return
+	if(currentItem)
+		to_chat(user, "<span class='notice'>The pod is already occupied!</span>")
+		return
+	if(!istype(L))
+		return
+	if(O == user)
+		visible_message("<span class='notice'>[user] climbs into \the [src].</span>")
+	else
+		visible_message("<span class='notice'>[user] puts [O.name] into \the [src].</span>")
+	if(user.pulling == 0)
+		user.stop_pulling()
+	put_in(0)
+
+/obj/machinery/scp_914/pod/intake/MouseDropFrom(over_object, src_location, var/turf/over_location, src_control, over_control, params)
+	if(connectedHub.lockedPods)
+		to_chat(usr, "<span class='notice'>The pod is locked tight!</span>")
+		return
+	if(!ishigherbeing(usr) && !isrobot(usr) || usr.incapacitated() || usr.lying)
+		return
+	if(!currentItem)
+		to_chat(usr, "<span class='warning'>\The [src] is unoccupied!</span>")
+		return
+	over_location = get_turf(over_location)
+	if(!istype(over_location) || over_location.density)
+		return
+	if(!Adjacent(over_location) || !Adjacent(usr) || !usr.Adjacent(over_location))
+		return
+	for(var/atom/movable/A in over_location.contents)
+		if(A.density)
+			if((A == src))
+				continue
+			return
+	if(occupant == usr)
+		visible_message("<span class='notice'>[usr] climbs out of the \the [src]</span>")
+	else
+		visible_message("<span class='notice'>[usr] pulls [currentItem.name] out of \the [src].</span>")
+	go_out(over_location, ejector = usr)
+
+/obj/machinery/scp_914/pod/intake/proc/put_in(var/atom/movable/A)
+	A.forceMove(src)
+	//A.reset_view()
+	src.currentItem = A
+	connectedHub.intakeItem = A
+
+/obj/machinery/scp_914/pod/intake/go_out(var/exit = src.loc, var/mob/ejector)
+	..()
+	connectedHub.intakeItem = null
+
+/obj/machinery/scp_914/pod/output
+	name = "Output"
+	desc += " This one is labelled \"Output\"."
+
+/obj/machinery/scp_914/pod/output/go_out(var/exit = src.loc, var/mob/ejector)
+	..()
+    // Handle this after ejection
+    if (ishuman(connectedHub.outputItem) && connectedHub.processType == STATE_COARSE)
+        var/mob/living/carbon/human/H = connectedHub,outputItem
+        H.gib()
+	connectedHub.outputItem = null
