@@ -71,6 +71,7 @@
                 H.update_mutations()
 
                 outputItem = H
+            // Sheet options
             if(istype(intakeItem,/obj/item/stack/sheet/metal))
                 outputItem = new /obj/item/stack/sheet/plasteel
 			if(istype(intakeItem,/obj/item/stack/ore/iron))
@@ -83,6 +84,9 @@
                 outputItem = new /obj/item/stack/sheet/mineral/gold
             if(istype(intakeItem,/obj/item/stack/ore/silver))
                 outputItem = new /obj/item/stack/sheet/mineral/silver
+            // Dude bombs
+            if(istype(intakeItem,/obj/item/device/transfer_valve))
+                outputItem = new /obj/effect/spawner/newbomb/timer
         if(STATE_VFINE)
             // If input item is humanoid
             if(ishuman(intakeItem))

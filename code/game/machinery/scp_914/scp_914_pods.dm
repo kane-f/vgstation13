@@ -126,11 +126,21 @@
 			// Blow up TTV bombs
 			if(istype(connectedHub.outputItem,/obj/item/device/transfer_valve)
 				var/obj/item/device/trans_valve/TTV = connectedHub.outputItem
-				TTV.toggle_valve()
+				TTV.toggle_valve(null)
 		if(STATE_ROUGH)
 			// Dismantle machines
 			if(istype(connectedHub.outputItem,/obj/machinery))
 				var/object/machinery/MC = connectedHub.outputItem
 				MC.dropFrame()
 				MC.spillContents()
+			// Dismantle TTVs
+			if(istype(connectedHub.outputItem,/obj/item/device/transfer_valve)
+				var/obj/item/device/trans_valve/TTV = connectedHub.outputItem
+				TTV.split_gases()
+				TTV.valve_open = 0
+				TTV.tank_one.forceMove(get_turf(src))
+				TTV.tank_one = null
+				TTV.tank_two.forceMove(get_turf(src))
+				TTV.tank_two = null
+				TTV.update_icon()
 	connectedHub.outputItem = null
