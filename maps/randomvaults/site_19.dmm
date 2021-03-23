@@ -1,70 +1,238 @@
 "aa" = (/turf/space,/area)
-"ab" = (/turf/simulated/wall/r_wall,/area)
-"ac" = (/turf/simulated/floor/bluegrid{icon_state = "dark"; name = "Mainframe Floor"; nitrogen = 100; oxygen = 0; temperature = 80},/area)
+"ac" = (/turf/simulated/floor,/area/vault)
+"aK" = (/obj/machinery/door/airlock/highsecurity,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"aN" = (/turf/simulated/floor/plating,/area/vault)
+"bw" = (/obj/structure/fence,/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"bG" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area/vault)
+"bZ" = (/obj/structure/bed/chair{dir = 1},/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"cd" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"ce" = (/mob/living/simple_animal/hostile/gourmonger,/turf/simulated/floor{dir = 6; icon_state = "dark"},/area/vault)
+"cM" = (/obj/structure/disposaloutlet{dir = 8},/turf/simulated/floor/plating,/area/vault)
+"dk" = (/obj/structure/hanging_lantern,/turf/unsimulated/floor/airless{icon_state = "asteroidplating"},/area)
+"dl" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/reinforced/plasma{dir = 4},/turf/simulated/floor/plating,/area/vault)
+"dm" = (/obj/structure/bed/chair{dir = 4},/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"dK" = (/obj/structure/rack,/obj/item/weapon/gun/projectile/roulette_revolver/infinite,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"dR" = (/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"ej" = (/obj/machinery/vending/groans,/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"ex" = (/turf/unsimulated/floor/airless{icon_state = "asteroidplating"},/area)
+"fE" = (/obj/machinery/door/airlock,/turf/simulated/floor/arcade,/area/vault)
+"fJ" = (/obj/structure/window/reinforced/plasma/interogation_room{dir = 4},/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area/vault)
+"fX" = (/obj/machinery/scp_914/pod/intake,/turf/simulated/floor{dir = 6; icon_state = "dark"},/area/vault)
+"gf" = (/mob/living/simple_animal/hostile/mechahitler,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"gp" = (/mob/living/simple_animal/hostile/humanoid/wizard,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"hC" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/turf/simulated/floor/plating,/area/vault)
+"ic" = (/obj/structure/bed,/mob/living/simple_animal/hostile/humanoid/russian,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"id" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/turf/simulated/floor/plating,/area/vault)
+"is" = (/obj/item/clothing/mask/facehugger,/turf/simulated/floor/plating,/area/vault)
+"iH" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/turf/simulated/floor/plating,/area/vault)
+"iM" = (/obj/structure/bed/chair/folding{dir = 1},/turf/simulated/floor/plating,/area/vault)
+"jb" = (/obj/machinery/processor,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"jv" = (/obj/machinery/door/window/plasma,/obj/machinery/door/window/plasma{dir = 8},/turf/simulated/floor{dir = 6; icon_state = "dark"},/area/vault)
+"jE" = (/mob/living/simple_animal/scp_173,/turf/simulated/floor,/area/vault)
+"kh" = (/obj/structure/window/reinforced/plasma/interogation_room{dir = 4},/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area)
+"kM" = (/obj/machinery/cooking/candy,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"kQ" = (/obj/structure/rack,/obj/item/weapon/katana,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"kZ" = (/obj/structure/bed,/mob/living/simple_animal/hostile/necro/zombie/headcrab,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"le" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area/vault)
+"li" = (/obj/structure/bed/chair{dir = 8},/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"lA" = (/obj/machinery/computer/arcade{emagged = 1},/turf/simulated/floor/arcade,/area/vault)
+"lD" = (/mob/living/simple_animal/hostile/giant_spider/nurse/queen_spider,/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"lW" = (/obj/structure/catwalk,/obj/structure/fence,/turf/space,/area)
+"me" = (/obj/structure/catwalk,/obj/structure/hanging_lantern{dir = 4},/turf/space,/area)
+"mj" = (/obj/structure/catwalk,/obj/structure/hanging_lantern{dir = 1},/turf/space,/area)
+"nk" = (/obj/structure/fence/door/opened{dir = 4},/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"nB" = (/obj/structure/lattice,/turf/space,/area)
+"nL" = (/obj/machinery/cooking,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"nN" = (/obj/structure/rack,/obj/item/beacon/syndicate,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"oa" = (/obj/structure/table,/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"oG" = (/obj/machinery/disposal/deliveryChute{dir = 4; name = "disposal inlet"},/obj/structure/disposalpipe/trunk{dir = 8},/turf/simulated/floor/plating,/area/vault)
+"oX" = (/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"pR" = (/obj/machinery/vending/cola,/turf/simulated/floor/arcade,/area/vault)
+"qa" = (/obj/structure/sign/securearea{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"},/turf/simulated/wall/r_wall,/area)
+"qd" = (/obj/structure/rack,/obj/item/weapon/katana/magic,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"qv" = (/obj/machinery/atmospherics/unary/tank/oxygen{starting_volume = 3200},/turf/simulated/floor/plating,/area/vault)
+"qD" = (/obj/machinery/door/airlock,/turf/simulated/floor/plating,/area/vault)
+"qL" = (/obj/machinery/door/airlock/external,/turf/simulated/floor/plating,/area/vault)
+"qS" = (/obj/structure/hanging_lantern{dir = 4},/turf/simulated/floor/asteroid,/area)
+"qU" = (/obj/structure/bed,/mob/living/simple_animal/hostile/humanoid/russian/ranged,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"re" = (/obj/machinery/cooking/cerealmaker,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"rh" = (/turf/simulated/floor{dir = 6; icon_state = "dark"},/area/vault)
+"rQ" = (/mob/living/simple_animal/hostile/asteroid/goliath,/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"rX" = (/obj/structure/rack,/obj/item/weapon/card/emag,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"ti" = (/obj/structure/table/woodentable/poker,/turf/simulated/floor/arcade,/area/vault)
+"tt" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor{icon_state = "dark"},/area/vault)
+"tF" = (/obj/machinery/vending/cigarette,/turf/simulated/floor/arcade,/area/vault)
+"um" = (/obj/structure/rack,/obj/item/clothing/mask/happy,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"uy" = (/obj/structure/window/reinforced/plasma/interogation_room{dir = 8},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/turf/simulated/floor/plating,/area/vault)
+"uH" = (/obj/structure/rack,/obj/item/clothing/mask/morphing,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"uS" = (/obj/structure/window/reinforced/plasma/interogation_room{dir = 8},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area/vault)
+"uV" = (/obj/machinery/door/airlock,/turf/simulated/wall/r_wall,/area/vault)
+"vf" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/wall/r_wall,/area/vault)
+"vz" = (/obj/structure/closet/secure_closet/freezer/fridge,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"vK" = (/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"vM" = (/obj/machinery/chem_dispenser/scp_294,/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"vP" = (/obj/structure/catwalk,/obj/structure/sign/securearea{desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'."; name = "KEEP CLEAR: DOCKING AREA"},/turf/simulated/wall/r_wall,/area)
+"ww" = (/turf/simulated/wall/r_wall,/area/vault)
+"xb" = (/obj/structure/rack,/obj/item/weapon/melee/soulblade,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"xg" = (/obj/item/weapon/stool,/turf/simulated/floor/arcade,/area/vault)
+"xr" = (/obj/structure/bed,/mob/living/simple_animal/hostile/monster/cyber_horror,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"xD" = (/obj/effect/alien/egg,/turf/simulated/floor/plating,/area/vault)
+"xU" = (/obj/structure/hanging_lantern{dir = 8},/turf/unsimulated/floor/airless{icon_state = "asteroidplating"},/area)
+"yo" = (/mob/living/simple_animal/hostile/creature,/turf/simulated/floor,/area/vault)
+"yu" = (/obj/machinery/door/airlock,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"yz" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area/vault)
+"yE" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area)
+"yZ" = (/turf/simulated/floor/carpet,/area/vault)
+"zc" = (/obj/machinery/door/airlock,/turf/simulated/floor/carpet,/area/vault)
+"zd" = (/obj/structure/rack,/obj/item/clothing/mask/stone,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"zf" = (/obj/structure/catwalk,/turf/space,/area)
+"zo" = (/obj/structure/bed/chair,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Au" = (/obj/structure/table,/obj/item/device/flashlight/lamp,/turf/simulated/floor/plating,/area/vault)
+"AP" = (/obj/structure/hanging_lantern{dir = 4},/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"AQ" = (/obj/structure/disposaloutlet{dir = 8},/obj/structure/disposalpipe/trunk{dir = 4},/turf/space,/area)
+"AX" = (/obj/structure/kitchenspike,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"AY" = (/obj/structure/rack,/obj/abstract/map/spawner/highrisk,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Bo" = (/turf/simulated/floor/wood,/area/vault)
+"BT" = (/turf/simulated/floor/arcade,/area/vault)
+"CG" = (/obj/machinery/door/airlock/glass{autoclose = 0; frequency = 1449; heat_proof = 1; icon_state = "door_locked"; id_tag = "incinerator_airlock_interior"; locked = 1; name = "Mixing Room Interior Airlock"; req_access_txt = "12"},/turf/simulated/floor/plating,/area/vault)
+"CZ" = (/obj/structure/fence{dir = 4},/obj/structure/catwalk,/turf/space,/area)
+"Dh" = (/turf/simulated/wall/r_wall,/area)
+"DF" = (/obj/structure/rack,/obj/item/weapon/melee/energy/sword/dualsaber,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Eu" = (/obj/structure/table/woodentable/poker,/obj/item/weapon/dice/d20/cursed/infinite,/turf/simulated/floor/arcade,/area/vault)
+"EB" = (/obj/structure/bed,/mob/living/simple_animal/hostile/monster/cyber_horror,/mob/living/simple_animal/hostile/monster/cyber_horror,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"EV" = (/obj/structure/table,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"EZ" = (/mob/living/simple_animal/hostile/humanoid/syndicate/ranged/space,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Fv" = (/obj/structure/table/reinforced,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"FC" = (/obj/structure/table/reinforced,/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"FG" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/wall/r_wall,/area)
+"FI" = (/obj/structure/rack,/obj/abstract/map/spawner/medical/drugs,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Gg" = (/obj/structure/fence,/turf/simulated/floor/asteroid,/area)
+"Gn" = (/obj/structure/rack,/obj/abstract/map/spawner/maint,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Gy" = (/obj/structure/hanging_lantern{dir = 4},/turf/space,/area)
+"GF" = (/obj/structure/table,/obj/machinery/reagentgrinder,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"Hs" = (/obj/machinery/conveyor{dir = 8},/turf/simulated/floor/plating,/area/vault)
+"Ic" = (/obj/structure/closet/secure_closet/freezer/kitchen,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"Ii" = (/obj/structure/rack,/obj/item/weapon/bloodcult_pamphlet/oneuse,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Io" = (/obj/structure/hanging_lantern,/turf/space,/area)
+"Is" = (/obj/structure/rack,/obj/abstract/map/spawner/food,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"II" = (/obj/machinery/door/airlock,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"IZ" = (/obj/structure/window/reinforced/plasma/interogation_room{dir = 8},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area)
+"Jy" = (/mob/living/simple_animal/hostile/monster/cyber_horror/Tajaran,/turf/simulated/floor,/area/vault)
+"JF" = (/obj/machinery/atmospherics/unary/tank/toxins{starting_volume = 3200},/turf/simulated/floor/plating,/area/vault)
+"JT" = (/obj/machinery/scp_914/hub,/turf/simulated/floor{dir = 6; icon_state = "dark"},/area/vault)
+"JY" = (/obj/structure/fence{dir = 4},/turf/unsimulated/floor/airless{icon_state = "asteroidplating"},/area)
+"KH" = (/obj/structure/hanging_lantern{dir = 1},/obj/structure/lattice,/turf/space,/area)
+"Ln" = (/obj/structure/fence{dir = 4},/turf/space,/area)
+"LD" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor{icon_state = "dark"},/area/vault)
+"LQ" = (/obj/machinery/atmospherics/unary/tank/air{dir = 1},/turf/simulated/floor/plating,/area/vault)
+"My" = (/obj/structure/hanging_lantern{dir = 1},/turf/space,/area)
+"MI" = (/turf/simulated/floor/asteroid,/area)
+"MX" = (/obj/machinery/artifact_scanpad,/turf/simulated/floor/plating,/area/vault)
+"Nc" = (/obj/machinery/artifact_analyser,/turf/simulated/floor/plating,/area/vault)
+"Ng" = (/obj/machinery/artifact_scanpad,/obj/machinery/artifact,/turf/simulated/floor/plating,/area/vault)
+"Nk" = (/obj/machinery/gibber,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"No" = (/obj/structure/window/reinforced/plasma/interogation_room{dir = 4},/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/turf/simulated/floor/plating,/area/vault)
+"Nq" = (/mob/living/simple_animal/hostile/humanoid/nazi/spacetrooper,/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"Nr" = (/obj/machinery/cooking/deepfryer,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"Ob" = (/obj/machinery/computer/arcade,/turf/simulated/floor/arcade,/area/vault)
+"Og" = (/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"Ot" = (/obj/structure/rack,/obj/abstract/map/spawner/food/voxfood,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"OO" = (/obj/structure/hanging_lantern{dir = 4},/obj/structure/lattice,/turf/space,/area)
+"OW" = (/obj/structure/hanging_lantern{dir = 1},/turf/unsimulated/floor/airless{icon_state = "asteroidplating"},/area)
+"Pl" = (/obj/structure/rack,/obj/item/clothing/gloves/warping_claws,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"PJ" = (/obj/machinery/door/airlock,/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"PK" = (/mob/living/simple_animal/hostile/asteroid/goliath/snow/great,/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"PS" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area)
+"QD" = (/obj/machinery/vending/boozeomat,/turf/simulated/floor/arcade,/area/vault)
+"Rk" = (/obj/structure/table/woodentable/poker,/obj/item/weapon/dice/d20/cursed/unfair,/turf/simulated/floor/arcade,/area/vault)
+"RA" = (/obj/structure/fence{dir = 4},/turf/simulated/floor/asteroid,/area)
+"Sv" = (/obj/structure/fence,/turf/unsimulated/floor/airless{icon_state = "asteroidplating"},/area)
+"Sz" = (/obj/structure/rack,/obj/item/changeling_vial,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"SE" = (/obj/structure/rack,/obj/item/stack/sheet/mineral/clown,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"SM" = (/obj/machinery/scp_914/pod/output,/turf/simulated/floor{dir = 6; icon_state = "dark"},/area/vault)
+"Tm" = (/obj/machinery/vending/discount,/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"Tr" = (/obj/machinery/vending/coffee,/turf/simulated/floor/arcade,/area/vault)
+"Tz" = (/obj/structure/rack,/obj/item/weapon/katana/hfrequency,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"TL" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 1},/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/obj/structure/window/full/plasma,/turf/simulated/floor/plating,/area)
+"Uf" = (/obj/structure/rack,/obj/abstract/map/spawner/engi/materials,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Ui" = (/obj/machinery/cooking/icemachine,/turf/simulated/floor{icon_state = "freezerfloor"},/area/vault)
+"Uo" = (/obj/structure/rack,/obj/item/stack/sheet/mineral/phazon,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Vk" = (/obj/structure/window/reinforced/plasma/interogation_room,/obj/structure/window/reinforced/plasma{dir = 8},/obj/structure/window/reinforced/plasma{dir = 4},/obj/structure/grille,/obj/machinery/door/poddoor{id_tag = "CaptOffice"; name = "Privacy Shutters"},/turf/simulated/floor/plating,/area/vault)
+"Vw" = (/obj/machinery/vending/snack,/turf/simulated/floor/arcade,/area/vault)
+"VO" = (/obj/structure/hanging_lantern{dir = 8},/turf/space,/area)
+"Xo" = (/obj/structure/rack,/obj/item/weapon/storage/box/spellbook,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"XK" = (/obj/structure/rack,/obj/abstract/map/spawner/safe/weapon,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"XR" = (/obj/structure/fence,/obj/structure/catwalk,/turf/space,/area)
+"Yf" = (/mob/living/simple_animal/hostile/faithless,/turf/simulated/floor,/area/vault)
+"Yg" = (/mob/living/simple_animal/hostile/necro/zombie/headcrab,/turf/simulated/floor,/area/vault)
+"Yy" = (/obj/structure/hanging_lantern,/turf/unsimulated/floor/airless{icon_state = "asteroidfloor"},/area)
+"Zx" = (/obj/structure/rack,/obj/abstract/map/spawner/floorpill/guaranteed,/turf/simulated/floor{icon_state = "dark vault full"},/area/vault)
+"Zy" = (/obj/structure/table,/obj/item/weapon/kitchen/utensil/knife{pixel_x = 7},/obj/item/weapon/kitchen/utensil/fork{pixel_x = -7},/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,/turf/simulated/floor{dir = 5; icon_state = "cafeteria"},/area/vault)
+"ZW" = (/obj/machinery/door/airlock/glass{autoclose = 0; frequency = 1449; heat_proof = 1; icon_state = "door_locked"; id_tag = "incinerator_airlock_exterior"; locked = 1; name = "Mixing Room Exterior Airlock"; req_access_txt = "12"},/turf/simulated/floor/plating,/area/vault)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaIoaaaaaaaaaaIoaaaaaaIoaa
+DhDhDhDhTLyEDhDhDhDhDhTLyEDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhLnLnLnLnLnqaLnLnLnLnLnqaLnLnLnqaVO
+DhwwwwwwbGyzwwwwwwwwwwbGyzwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDhexexexoXzfmjzfzfzfzfzfmjzfzfzflWaa
+DhwwyZyZyZyZyZyZwwyZyZyZyZyZyZwwvKvKvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKvKwwjbUiNrNrAXNkwwDhexexexoXoXoXoXoXoXoXzfzfzfzfzflWaa
+DhwwyZyZyZyZyZyZwwyZyZyZyZyZyZwwvKvKvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKvKwwOgOgOgOgOgOgwwDhexexexoXoXoXoXoXoXoXoXoXoXzfmevPVO
+DhwwyZyZyZyZyZyZwwyZyZyZyZyZyZwwvKvKvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKvKwwreOgGFoaOgkMwwDhexexexoXoXoXoXoXoXoXoXoXoXoXzflWaa
+DhwwyZyZyZyZyZyZwwyZyZyZyZyZyZwwvKvKvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKvKwwOgOgOgOgOgOgwwDhexexexoXoXoXoXoXoXoXoXoXoXoXzflWaa
+DhwwyZyZyZyZyZyZwwyZyZyZyZyZyZwwvKvKvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKvKwwnLIcOgOgvzcdwwDhxUexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+DhwwwwwwwwzcwwwwwwwwwwwwzcwwwwwwwwwwIIwwwwwwwwIIwwwwwwIIwwwwwwIIwwwwwwIIwwwwwwwwwwyuwwwwwwwwDhexexexoXoXoXoXlDoXoXoXoXoXoXoXlWaa
+khfJacacacacacacacacacacacacYgacacacacacacacacYgacacacacacacacYfacacacacacacacYfacacacacacfJkhexexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+PSleacacacacacacacYgacacacacacacacacacacacacacacacacacYgacacacacacacacYfacacacacacacacacaclePSexexexoXoXoXoXoXoXoXoXoXoXoXAPvPVO
+DhwwwwwwzcwwwwwwwwzcwwwwwwwwzcwwwwwwacacacwwwwwwttLDwwwwfEwwttLDwwwwwwttLDwwPJwwwwttLDwwwwwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+DhwwyZyZyZyZwwyZyZyZyZwwyZyZyZyZyZwwJyacacwwBTOblAlAObBTBTBTObObBTFCdRdRdRdRdRdRdRdRdRdRdRwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+DhwwyZyZyZyZwwyZyZyZyZwwyZyZyZyZyZwwacacacwwBTBTBTBTBTBTBTBTxgxgBTFCdRdmZylidmZylidmZylidRwwDhxUexexlDoXoXoXoXoXoXoXlDoXoXoXlWaa
+DhwwyZyZyZyZwwyZyZyZyZwwyZyZyZyZyZwwacacacfEBTxgRkEuxgBTBTBTtitiBTFCdRdmZylidmZylidmZylidRwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+DhwwyZyZyZyZwwyZyZyZyZwwyZyZyZyZyZwwacacacwwBTBTBTBTBTBTBTBTxgxgBTwwdRdmZylidmZylidRdRdRdRwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+DhwwyZyZyZyZwwyZyZyZyZwwyZyZyZyZyZwwacacJywwpRTrQDVwtFBTBTBTBTBTBTuVdRdRdRdRdRdRdRdRTmejvMwwDhexexexoXoXoXoXoXoXoXoXoXoXoXAPqaVO
+DhwwwwbGyzwwwwwwbGyzwwwwwwbGyzwwwwwwacacacwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+DhDhDhTLyEDhDhDhTLyEDhDhDhTLyEDhDhwwwwqLwwwwDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhexexexoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+oXbwoXoXoXbwoXoXoXoXNqoXoXoXoXoXDhwwaNaNaNwwDhoXoXoXrQoXoXoXoXoXoXoXrQoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+oXnkoXoXoXnkoXoXoXoXoXoXoXoXoXoXoXqLaNaNaNqLoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+oXbwoXoXoXbwoXoXoXYyNqoXoXoXoXoXDhwwaNaNaNwwDhoXoXoXoXoXoXoXrQoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+GyqaJYJYJYqaRARARAqaDhDhDhTLyEDhDhwwwwqLwwwwDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhexexexoXoXoXAPqaVO
+aaKHaaaaaaOWexexexSvDhwwwwbGyzwwwwwwacacacwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBexexexSvDhwwyZyZyZyZyZwwJyacacwwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBoBoBowwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaMIMIGgkhfJyZyZyZyZyZwwacacacwwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBoBoBowwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaMIMIGgPSleyZyZyZyZyZwwacacacwwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBoBoBowwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaMIMIGgDhwwyZyZyZyZyZwwacacJywwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBowwBoBoBoBowwDhxUexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaMIGgDhwwwwwwIIwwwwwwacacacwwwwIIwwwwIIwwwwIIwwwwIIwwwwIIwwwwIIwwwwIIwwwwIIwwwwIIwwwwIIwwwwwwDhexexexoXoXoXAPqaVO
+aanBnBnBnBnBnBnBqSqaDhwwvKvKvKvKvKwwacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacfJkhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaMIGgDhwwvKvKvKvKvKwwacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaclePSexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaGgDhwwvKvKvKvKvKwwacacacwwwwIIwwwwwwIIwwwwwwwwIIwwwwwwIIwwwwacacwwwwIIwwwwwwwwwwIIwwwwwwwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaGgkhfJvKvKvKvKvKwwacacacwwvKvKvKwwvKvKvKvKwwvKvKvKwwvKvKvKwwacacwwvKvKvKvKwwvKvKvKvKvKvKwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaGgIZuSvKvKvKvKvKwwacacacwwvKvKvKwwvKvKvKvKwwvKvKvKwwvKvKvKwwacacwwvKvKvKvKwwvKvKvKvKvKvKwwDhxUexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaGgPSlevKvKvKvKvKwwacacacwwvKvKvKwwvKvKvKvKwwvKvKvKwwvKvKvKwwacjEwwvKvKvKvKwwvKvKvKvKvKvKwwDhexexexoXoXoXAPqaVO
+aanBaaaaaanBaaaaaaGgDhwwvKvKvKvKvKwwacacacwwvKvKvKwwvKvKvKvKwwvKvKvKwwvKvKvKwwacacwwvKvKvKvKwwvKvKvKvKvKvKwwDhexexexoXoXoXoXbwaa
+aanBnBnBnBnBnBnBOOqaDhwwvKvKvKvKvKIIacacacwwvKvKvKwwvKvKvKvKwwvKvKvKwwvKvKvKwwacacwwvKvKvKvKwwvKvKvKvKvKvKwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaGgDhwwvKvKvKvKvKwwacacacwwwwIIwwwwwwIIwwwwwwwwIIwwwwwwIIwwwwacacwwwwIIwwwwwwwwwwIIwwwwwwwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaGgkhfJvKvKvKvKvKwwacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacfJkhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaXRIZuSvKvKvKvKvKwwacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaclePSexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaXRPSlevKvKvKvKvKwwacacacwwwwqDwwwwwwqDwwwwwwqDwwwwwwqDwwwwwwqDwwwwwwqDwwwwwwqDwwwwwwqDwwwwDhxUexexoXoXoXAPqaVO
+aanBaaaaaanBaaaaaaXRDhwwvKvKvKvKvKwwacacacwwaNaNaNwwaNaNaNwwaNaNaNwwaNaNaNwwaNaNaNwwaNaNaNwwaNaNaNwwaNaNaNwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaXRDhwwvKvKvKvKvKwwacacacwwaNaNAuwwaNaNAuwwaNaNAuwwaNaNAuwwaNisAuwwaNisAuwwaNaNAuwwaNaNAuwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaXRDhwwvKvKvKvKvKwwacacacwwiMNgNcwwiMNgNcwwiMNgNcwwiMNgNcwwiMxDNcwwiMxDNcwwiMMXNcwwiMMXNcwwDhexexexoXoXoXoXbwaa
+aanBnBnBnBnBnBnBOODhDhwwwwwwwwwwwwwwacacacwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaAQFGvfoGHscMqvJFwwacacacwwwwwwwwwwwwwwwwDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhexexexoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaaaDhwwaNaNaNaNaNwwacacacwwwwrhrhrhrhrhwwDhoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXAPqaVO
+aanBaaaaaanBaaaaaaaaDhwwaNaNaNaNaNqDacacacwwwwrhfXJTSMrhwwDhoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+aanBaaaaaanBaaaaaaaaDhwwdlwwCGwwaNwwacacacwwwwrhrhrhrhrhwwDhoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+DhDhDhDhDhDhDhDhDhDhDhwwaNZWaNwwLQwwacacacwwwwwwwwaKwwwwwwDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhexexexoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+DhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwacacacwwwwwwwwvKwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+DhwwzoxrEVwwzokZEVwwzoqUEVwwzoicEVwwacacacwwvKvKwwaKwwvKvKvKvKvKvKvKvKvKvKvKvKvKvKvKvKvKvKwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXbwaa
+DhwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwacacacwwvKvKvKvKvKvKvKvKUfUfUfvKvKAYvKIsvKvKgprXvKPlvKwwDhexexexoXoXoXoXoXoXoXoXoXoXoXAPqaVO
+DhwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwacacacIIvKEZvKvKvKEZvKEZvKvKvKEZvKAYvKIsvKvKvKumvKnNvKwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+DhwwwwIIwwwwwwIIwwwwwwIIwwwwwwIIwwwwacacacwwvKvKGnGnGnvKvKvKZxZxZxvKvKAYvKIsvKvKvKuHvKUovKwwDhxUexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+khfJacacacyoacacacacacacacyoacacacacacacacwwvKvKvKvKvKvKvKvKvKvKvKvKvKAYvKOtgpvKvKuHvKSEvKwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+PSleacacacacacacacyoacacacacacacacyoacacacwwwwwwIIwwwwwwwwidhCiHwwwwvKAYvKOtvKvKvKdKvKTzvKwwDhexexexoXoXoXoXoXoXoXoXoXoXoXoXlWaa
+DhwwwwIIwwwwwwIIwwwwwwIIwwwwwwIIwwwwwwIIwwwwvKvKvKvKvKwwrhrhrhrhrhwwvKXKvKOtvKvKvKDFvKXovKwwDhexexexoXoXoXoXoXoXoXoXoXoXoXzflWaa
+DhwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwFvvKvKvKvKNorhrhrhrhrhwwvKXKvKFIvKvKvKxbvKzdvKwwDhexexexPKoXoXoXoXoXoXoXoXoXoXmeqaVO
+DhwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwvKvKvKwwFvvKgfvKvKuyrhrhcerhrhwwvKXKvKFIvKvKgpkQvKIivKwwDhexexexexexexexexexexexexexexzfXRaa
+DhwwbZEBEVwwbZkZEVwwbZqUEVwwbZicEVwwbZicEVwwFvvKvKvKvKVkrhrhrhrhrhwwvKXKvKFIvKvKvKqdvKSzvKwwDhexexexexexexexexexexexexexexzfXRaa
+DhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwFvvKvKvKvKjvrhrhrhrhrhwwvKvKvKvKvKvKvKvKvKvKvKwwDhexexexexexdkexexexexexdkzfzfzfXRaa
+DhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwDhRARARARARAqaRARACZCZCZvPCZCZCZvPVO
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhDhaaaaaaaaaaMyaaaaaaaaaaMyaaaaaaMyaa
 "}
