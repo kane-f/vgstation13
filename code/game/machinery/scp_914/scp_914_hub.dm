@@ -20,6 +20,13 @@
 	machine_flags = FIXED2WORK | WRENCHMOVE
 	mech_flags = MECH_SCAN_FAIL
 
+// Indestructible
+/obj/machinery/scp_914/ex_act()
+	return
+
+/obj/machinery/scp_914/blob_act()
+	return
+
 #define STATE_COARSE "Coarse"
 #define STATE_ROUGH "Rough"
 #define STATE_EQUAL "1:1"

@@ -117,15 +117,19 @@
 				var/mob/M = connectedHub.outputItem
 				M.gib()
 			// Turn machines into sheets and parts
-			if(istype(iconnectedHub.outputItem,/obj/machinery))
+			if(istype(connectedHub.outputItem,/obj/machinery))
 				var/object/machinery/MC = connectedHub.outputItem
 				MC.spillContents()
 				qdel(MC)
 				var/obj/item/stack/sheet/metal/MStack = new /obj/item/stack/sheet/metal(get_turf(src))
 				MStack.amount = 2
+			// Blow up TTV bombs
+			if(istype(connectedHub.outputItem,/obj/item/device/transfer_valve)
+				var/obj/item/device/trans_valve/TTV = connectedHub.outputItem
+				TTV.toggle_valve()
 		if(STATE_ROUGH)
 			// Dismantle machines
-			if(istype(iconnectedHub.outputItem,/obj/machinery))
+			if(istype(connectedHub.outputItem,/obj/machinery))
 				var/object/machinery/MC = connectedHub.outputItem
 				MC.dropFrame()
 				MC.spillContents()
