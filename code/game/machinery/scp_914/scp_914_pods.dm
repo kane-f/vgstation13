@@ -114,7 +114,7 @@
 		if(STATE_COARSE)
 			// Gib living things
 			if (istype(connectedHub.outputItem, /mob))
-				var/mob/M = connectedHub,outputItem
+				var/mob/M = connectedHub.outputItem
 				M.gib()
 			if(istype(iconnectedHub.outputItem,/obj/machinery))
 				var/object/machinery/MC = connectedHub.outputItem
