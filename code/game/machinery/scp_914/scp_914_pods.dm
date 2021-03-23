@@ -116,12 +116,15 @@
 			if (istype(connectedHub.outputItem, /mob))
 				var/mob/M = connectedHub.outputItem
 				M.gib()
+			// Turn machines into sheets and parts
 			if(istype(iconnectedHub.outputItem,/obj/machinery))
 				var/object/machinery/MC = connectedHub.outputItem
 				MC.spillContents()
 				qdel(MC)
-				new /obj/item/stack/sheet/metal(src.loc)
+				var/obj/item/stack/sheet/metal/MStack = new /obj/item/stack/sheet/metal(get_turf(src))
+				MStack.amount = 2
 		if(STATE_ROUGH)
+			// Dismantle machines
 			if(istype(iconnectedHub.outputItem,/obj/machinery))
 				var/object/machinery/MC = connectedHub.outputItem
 				MC.dropFrame()

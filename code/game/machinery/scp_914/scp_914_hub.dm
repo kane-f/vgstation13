@@ -168,13 +168,23 @@
 	if (ishuman(intakeItem))
 		var/mob/living/carbon/human/H = intakeItem
 		H.reset_view()
-		//TODO: Turn off suit sensors and GPSes, like in SCP
-	sleep(10 SECONDS)
+		//TODO: Turn off suit sensors (obj/item/clothing) and GPSes, like in SCP
+		//var/gps_list = recursive_type_check(GPS, /obj/item/device/gps)
 	convertItem()
 	outputPod.currentItem = outputItem
 	intakePod.currentItem = null
 	unlockPods()
 	ejectPods()
+
+// Wipe everything inside from existence if EMP'd
+/obj/machinery/scp_914/hub/emp_act(severity)
+	..(severity)
+	qdel(intakeItem)
+	qdel(outputItem)
+	intakeItem = null
+	outputItem = null
+	currentlyProcessing = FALSE
+	unlockPods()
 
 /obj/machinery/scp_914/hub/Destroy()
 	if(intakePod)
