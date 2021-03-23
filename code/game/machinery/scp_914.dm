@@ -187,8 +187,6 @@
             if(ishuman(intakeItem))
                 var/mob/living/carbon/human/H = intakeItem
                 outputItem = H
-                // Gib them
-                //H.gib()
             if(istype(intakeItem,/obj/item/stack/sheet/metal))
                 outputItem = new /obj/item/stack/ore/iron
             if(istype(intakeItem,/obj/item/stack/sheet/mineral/plasma))
@@ -253,6 +251,16 @@
                 outputItem = H
             if(istype(intakeItem,/obj/item/stack/sheet/metal))
                 outputItem = new /obj/item/stack/sheet/plasteel
+			if(istype(intakeItem,/obj/item/stack/ore/iron))
+                outputItem = new /obj/item/stack/sheet/metal
+            if(istype(intakeItem,/obj/item/stack/ore/plasma))
+                outputItem = new /obj/item/stack/sheet/mineral/plasma)
+            if(istype(intakeItem,/obj/item/stack/ore/glass))
+                outputItem = new /obj/item/stack/sheet/glass
+            if(istype(intakeItem,/obj/item/stack/ore/gold))
+                outputItem = new /obj/item/stack/sheet/mineral/gold
+            if(istype(intakeItem,/obj/item/stack/ore/silver))
+                outputItem = new /obj/item/stack/sheet/mineral/silver
         if(STATE_VFINE)
             // If input item is humanoid
             if(ishuman(intakeItem))
