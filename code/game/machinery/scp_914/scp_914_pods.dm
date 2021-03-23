@@ -110,7 +110,20 @@
 /obj/machinery/scp_914/pod/output/go_out(var/exit = src.loc, var/mob/ejector)
 	..()
 	// Handle this after ejection
-	if (ishuman(connectedHub.outputItem) && connectedHub.processType == STATE_COARSE)
-		var/mob/living/carbon/human/H = connectedHub,outputItem
-		H.gib()
+	switch(connectedHub.processType)
+		if(STATE_COARSE)
+			// Gib living things
+			if (istype(connectedHub.outputItem, /mob))
+				var/mob/M = connectedHub,outputItem
+				M.gib()
+			if(istype(iconnectedHub.outputItem,/obj/machinery))
+				var/object/machinery/MC = connectedHub.outputItem
+				MC.spillContents()
+				qdel(MC)
+				new /obj/item/stack/sheet/metal(src.loc)
+		if(STATE_ROUGH)
+			if(istype(iconnectedHub.outputItem,/obj/machinery))
+				var/object/machinery/MC = connectedHub.outputItem
+				MC.dropFrame()
+				MC.spillContents()
 	connectedHub.outputItem = null
