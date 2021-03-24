@@ -74,7 +74,7 @@
             // Sheet options
             if(istype(intakeItem,/obj/item/stack/sheet/metal))
                 outputItem = new /obj/item/stack/sheet/plasteel
-			if(istype(intakeItem,/obj/item/stack/ore/iron))
+            if(istype(intakeItem,/obj/item/stack/ore/iron))
                 outputItem = new /obj/item/stack/sheet/metal
             if(istype(intakeItem,/obj/item/stack/ore/plasma))
                 outputItem = new /obj/item/stack/sheet/mineral/plasma)
