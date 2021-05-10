@@ -694,7 +694,14 @@
 	I.loc = src
 	I.plane = PLANE_FOR
 	I.layer = ATMOS_INFO_LAYER
-	var/avalue = air.pressure <= ONE_ATMOSPHERE ? max(air.pressure / (ONE_ATMOSPHERE / 128), 128) : max(air.pressure / ((ONE_ATMOSPHERE * 10) / 255), 255)
+	var/atmos = loc.return_air()
+	var/total_moles = atmos.total_moles()
+	var/apressure = atmos.return_pressure()
+	var/rvalue = atmos[GAS_PLASMA]/total_moles * 255
+	var/gvalue = atmos[GAS_NITROGEN]/total_moles * 255
+	var/bvalue = atmos[GAS_OXYGEN]/total_moles * 255
+	var/avalue = apressure <= ONE_ATMOSPHERE ? max(apressure / (ONE_ATMOSPHERE / 128), 128) : max(apressure / ((ONE_ATMOSPHERE * 10) / 255), 255)
+	I.color = rgb(rvalue,gvalue,bvalue)
 	I.alpha = avalue
 	atmos_data = I
 
