@@ -250,7 +250,7 @@
 /obj/item/clothing/glasses/scanner/material/atmos
 	name = "optical atmospherics scanner"
 	desc = "Allows one to see the pressure and air contents of each room visualised."
-	icon_state = "material"
+	icon_state = "atmos"
 
 /obj/item/clothing/glasses/scanner/material/atmos/get_images(var/turf/T, var/view)
 	. = list()

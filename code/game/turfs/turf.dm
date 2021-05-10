@@ -689,7 +689,7 @@
 	holomap_data += I
 
 /turf/proc/add_atmos_info()
-	atmos_data = image()
+	atmos_data = image(icon="icons/Testing/atmos_testing", icon_state="")
 	atmos_data.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
 	atmos_data.loc = src
 	atmos_data.plane = PLANE_FOR
