@@ -694,7 +694,8 @@
 	I.loc = src
 	I.plane = PLANE_FOR
 	I.layer = ATMOS_INFO_LAYER
-	I.alpha = max(air.pressure/(4500/255),255)
+	var/avalue = air.pressure <= ONE_ATMOSPHERE ? max(air.pressure / (ONE_ATMOSPHERE / 128), 128) : max(air.pressure / ((ONE_ATMOSPHERE * 10) / 255), 255)
+	I.alpha = avalue
 	atmos_data = I
 
 // Goddamnit BYOND.
