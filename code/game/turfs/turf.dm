@@ -689,12 +689,13 @@
 	holomap_data += I
 
 /turf/proc/add_atmos_info()
-	atmos_data = image(icon="icons/Testing/atmos_testing", icon_state="")
-	atmos_data.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
-	atmos_data.loc = src
-	atmos_data.plane = PLANE_FOR
-	atmos_data.layer = ATMOS_INFO_LAYER
-	atmos_data.alpha = max(air.pressure/(MAX_PRESSURE/255),255)
+	var/image/I = image(icon="icons/effects/effects", icon_state="atmos_data")
+	I.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
+	I.loc = src
+	I.plane = PLANE_FOR
+	I.layer = ATMOS_INFO_LAYER
+	I.alpha = max(air.pressure/(4500/255),255)
+	atmos_data = I
 
 // Goddamnit BYOND.
 // So for some reason, I incurred a rendering issue with the usage of FLOAT_PLANE for the holomap plane.

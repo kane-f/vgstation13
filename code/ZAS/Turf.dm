@@ -45,8 +45,6 @@
 
 				SSair.connect(sim, src)
 
-	add_atmos_info()
-
 /turf/simulated/update_air_properties()
 	if(zone && zone.invalid)
 		c_copy_air()
