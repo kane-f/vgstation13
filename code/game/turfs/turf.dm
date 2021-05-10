@@ -63,6 +63,8 @@
 
 	// This is the placed to store data for the holomap.
 	var/list/image/holomap_data
+	// Atmos overlay image -kanef
+	var/image/atmos_data
 
 	// Map element which spawned this turf
 	var/datum/map_element/map_element
@@ -324,6 +326,7 @@
 
 /turf/proc/levelupdate()
 	update_holomap_planes()
+	update_atmos_info_planes()
 	for(var/obj/O in src)
 		if(O.level == 1)
 			O.hide(src.intact)
@@ -331,6 +334,7 @@
 // override for space turfs, since they should never hide anything
 /turf/space/levelupdate()
 	update_holomap_planes()
+	update_atmos_info_planes()
 	for(var/obj/O in src)
 		if(O.level == 1)
 			O.hide(0)
@@ -452,6 +456,7 @@
 		holomap_draw_override = old_holomap_draw_override//we don't want roid/snowmap cave tunnels appearing on holomaps
 	holomap_data = old_holomap // Holomap persists through everything...
 	update_holomap_planes() // But we might need to recalculate it.
+	update_atmos_info_planes()
 	if(density != old_density)
 		densityChanged()
 
@@ -683,6 +688,14 @@
 		holomap_data = list()
 	holomap_data += I
 
+/turf/proc/add_atmos_info()
+	atmos_data = image()
+	atmos_data.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
+	atmos_data.loc = src
+	atmos_data.plane = PLANE_FOR
+	atmos_data.layer = ATMOS_INFO_LAYER
+	atmos_data.alpha = max(air.pressure/(MAX_PRESSURE/255),255)
+
 // Goddamnit BYOND.
 // So for some reason, I incurred a rendering issue with the usage of FLOAT_PLANE for the holomap plane.
 //   (For some reason the existance of underlays prevented the main icon and overlays to render)
@@ -695,6 +708,10 @@
 	var/the_plane = PLANE_FOR
 	for (var/image/I in holomap_data)
 		I.plane = the_plane
+
+/turf/proc/update_atmos_info_planes()
+	var/the_plane = PLANE_FOR
+	atmos_data.plane = the_plane
 
 #undef PLANE_FOR
 

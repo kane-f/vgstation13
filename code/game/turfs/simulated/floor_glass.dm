@@ -103,6 +103,7 @@
 
 /turf/simulated/floor/glass/levelupdate()
 	update_holomap_planes()
+	update_atmos_info_planes()
 	for(var/obj/O in src)
 		if(O.level == 1)
 			O.hide(FALSE) // ALWAYS show subfloor stuff.

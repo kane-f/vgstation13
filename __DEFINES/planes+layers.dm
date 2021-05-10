@@ -93,25 +93,26 @@ What is the naming convention for planes or layers?
 
 #define ABOVE_TURF_PLANE 		-15			// For items which should appear above turfs but below other objects and hiding mobs, eg: wires & pipes
 
-	#define HOLOMAP_LAYER				1
-	#define RUNE_LAYER					2
-	#define DECAL_LAYER					3
-	#define SNOWPRINT_LAYER				4
-	#define TURF_FIRE_LAYER				5
-	#define ABOVE_TILE_LAYER			6
-	#define UNARY_PIPE_LAYER			7
-	#define TRINARY_PIPE_LAYER			8
-	#define BINARY_PIPE_LAYER			9
-	#define EXPOSED_PIPE_LAYER			10
-	#define EXPOSED_UNARY_PIPE_LAYER	11
-	#define EXPOSED_TRINARY_PIPE_LAYER	12
-	#define EXPOSED_BINARY_PIPE_LAYER	13
-	#define SNOW_LAYER					14
-	#define MOUSETRAP_LAYER 			15
-	#define FIREAXE_LOCKER_LAYER		16
-	#define BLOOD_LAYER					17
-	#define GIBS_OVERLAY_LAYER			18 //Holy fuck I'm so fucking mad it took me this long to figure it out. If you suspect an overlay isn't showing TRY GIVING IT A REALLY HIGH LAYER
-	#define CREEPER_LAYER				19
+	#define ATMOS_INFO_LAYER			1
+	#define HOLOMAP_LAYER				2
+	#define RUNE_LAYER					3
+	#define DECAL_LAYER					4
+	#define SNOWPRINT_LAYER				5
+	#define TURF_FIRE_LAYER				6
+	#define ABOVE_TILE_LAYER			7
+	#define UNARY_PIPE_LAYER			8
+	#define TRINARY_PIPE_LAYER			9
+	#define BINARY_PIPE_LAYER			10
+	#define EXPOSED_PIPE_LAYER			11
+	#define EXPOSED_UNARY_PIPE_LAYER	12
+	#define EXPOSED_TRINARY_PIPE_LAYER	13
+	#define EXPOSED_BINARY_PIPE_LAYER	14
+	#define SNOW_LAYER					15
+	#define MOUSETRAP_LAYER 			16
+	#define FIREAXE_LOCKER_LAYER		17
+	#define BLOOD_LAYER					18
+	#define GIBS_OVERLAY_LAYER			19 //Holy fuck I'm so fucking mad it took me this long to figure it out. If you suspect an overlay isn't showing TRY GIVING IT A REALLY HIGH LAYER
+	#define CREEPER_LAYER				20
 	#define WEED_LAYER					420
 
 #define NOIR_BLOOD_PLANE 		-14		 	// Contains BLOOD, (ALSO) will appear to people under the influence of the noir colour matrix. -if changing this, make sure that the blood layer changes too.

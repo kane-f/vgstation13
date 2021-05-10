@@ -246,3 +246,14 @@
 	for (var/turf/TT in trange(view, T))
 		if (TT.holomap_data)
 			. += TT.holomap_data
+
+/obj/item/clothing/glasses/scanner/material/atmos
+	name = "optical atmospherics scanner"
+	desc = "Allows one to see the pressure and air contents of each room visualised."
+	icon_state = "material"
+
+/obj/item/clothing/glasses/scanner/material/atmos/get_images(var/turf/T, var/view)
+	. = list()
+	for (var/turf/TT in trange(view, T))
+		if (TT.atmos_data)
+			. += TT.atmos_data
