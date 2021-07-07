@@ -549,6 +549,7 @@
 
 	species_type = /mob/living/simple_animal/corgi/sasha
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/animal
+	holder_type = /obj/item/weapon/holder/animal/corgi/sasha
 
 //Sasha can't wear hats!
 /mob/living/simple_animal/corgi/sasha/Topic(href, href_list)

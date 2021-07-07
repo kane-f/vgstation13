@@ -135,6 +135,15 @@
 
 	update_itemstate_on_twohand = TRUE
 
+//SASHA
+
+/obj/item/weapon/holder/animal/corgi/sasha
+	name = "sasha holder"
+	desc = "Icon states yay!"
+	item_state = "corgi"
+
+	update_itemstate_on_twohand = TRUE
+
 //CARP
 
 /obj/item/weapon/holder/animal/carp
