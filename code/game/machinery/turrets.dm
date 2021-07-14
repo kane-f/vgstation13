@@ -41,6 +41,7 @@
 		installed = new /obj/item/weapon/gun/energy/gun(src)
 	if(!wires.assemblies["[TURRET_POPUP]"])
 		var/obj/item/device/assembly/prox_sensor/PS = new
+		PS.constant_pulse = FALSE
 		wires.Attach("[TURRET_POPUP]",PS)
 	if(!wires.assemblies["[TURRET_SHOOT]"])
 		var/obj/item/device/assembly/prox_sensor/PS = new

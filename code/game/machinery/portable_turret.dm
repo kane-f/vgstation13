@@ -44,6 +44,7 @@
 		installed = new /obj/item/weapon/gun/energy/taser(src)
 	if(!wires.assemblies["[TURRET_POPUP]"])
 		var/obj/item/device/assembly/prox_sensor/PS = new
+		PS.constant_pulse = FALSE
 		wires.Attach("[TURRET_POPUP]",PS)
 	if(!wires.assemblies["[TURRET_SHOOT]"])
 		var/obj/item/device/assembly/prox_sensor/PS = new
@@ -750,6 +751,7 @@ Status: []<BR>"},
 					var/obj/machinery/turret/portable/Turret = new/obj/machinery/turret/portable(locate(x,y,z))
 					Turret.name = finish_name
 					Turret.installed = src.installed
+					assembly1.constant_pulse = FALSE
 					Turret.wires.Attach("[TURRET_POPUP]",assembly1)
 					Turret.wires.Attach("[TURRET_SHOOT]",assembly2)
 					installed.forceMove(Turret)
