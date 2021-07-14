@@ -1,7 +1,7 @@
 /datum/wires/turret
 	holder_type = /obj/machinery/turret
 	wire_count = 5
-    var/lethal = 0
+	var/lethal = 0
 
 /datum/wires/turret/New()
 	wire_names=list(
@@ -40,23 +40,23 @@ var/const/TURRET_LETHAL = 8 // Whether the turret is on lethal mode (if possible
 		if(TURRET_POWER)
 			T.power_change()
 			T.shock(user, 50, get_conductivity(I))
-        if(TURRET_POPUP)
-            if(mended)
-                T.popUp()
-            else
-                T.popDown()
-        if(TURRET_SHOOT)
-            if(mended)
-                T.setState(1,lethal)
-            else
-                T.setState(0,lethal)
-        if(TURRET_LETHAL)
-            if(mended)
-                lethal = 0
-                T.setState(T.enabled,lethal)
-            else
-                lethal = 1
-                T.setState(T.enabled,lethal)
+		if(TURRET_POPUP)
+			if(mended)
+				T.popUp()
+			else
+				T.popDown()
+		if(TURRET_SHOOT)
+			if(mended)
+				T.setState(1,lethal)
+			else
+				T.setState(0,lethal)
+		if(TURRET_LETHAL)
+			if(mended)
+				lethal = 0
+				T.setState(T.enabled,lethal)
+			else
+				lethal = 1
+				T.setState(T.enabled,lethal)
 
 /datum/wires/turret/UpdatePulsed(var/index)
 	var/obj/machinery/turret/T = holder
@@ -65,14 +65,14 @@ var/const/TURRET_LETHAL = 8 // Whether the turret is on lethal mode (if possible
 		if(TURRET_POWER)
 			T.power_change()
 			T.shock(user, 50, get_conductivity(I))
-        if(TURRET_POPUP)
-            if(!T.raised)
-                T.popUp()
-            else
-                T.popDown()
-        if(TURRET_SHOOT)
-            if(T.raised && T.enabled && T.check_target(user))
-                T.shootAt(user)
-        if(TURRET_LETHAL)
-            lethal = !lethal
-            T.setState(T.enabled,lethal)
+		if(TURRET_POPUP)
+			if(!T.raised)
+				T.popUp()
+			else
+				T.popDown()
+		if(TURRET_SHOOT)
+			if(T.raised && T.enabled && T.check_target(user))
+				T.shootAt(user)
+		if(TURRET_LETHAL)
+			lethal = !lethal
+			T.setState(T.enabled,lethal)
