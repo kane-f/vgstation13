@@ -332,6 +332,13 @@ Status: []<BR>"},
 
 	//set background = 1
 
+	if(src.cover==null && anchored) // if it has no cover and is anchored
+		if (stat & BROKEN) // if the turret is borked
+			qdel(cover) // delete its cover, assuming it has one. Workaround for a pesky little bug
+		else
+			src.cover = new /obj/machinery/turretcover/portable(src.loc) // if the turret has no cover and is anchored, give it a cover
+			src.cover.host = src // assign the cover its host, which would be this (src)
+
 	if(!on)
 		// if the turret is off, make it pop down
 		popDown()
@@ -709,6 +716,21 @@ Status: []<BR>"},
 				to_chat(user, "<span class='notice'>You begin welding the turret's armor down.</span>")
 				if(WT.do_weld(user, src, 30,5))
 					build_step = 10
+					to_chat(user, "<span class='notice'>You weld the turret's armor down.</span>")
+
+			else if(iscrowbar(W))
+				W.playtoolsound(src, 75)
+				to_chat(user, "You pry off the turret's exterior armor.")
+				new /obj/item/stack/sheet/metal(loc, 2)
+				build_step = 8
+				return
+
+		if(10)
+			if(iswelder(W))
+				var/obj/item/tool/weldingtool/WT = W
+				to_chat(user, "<span class='notice'>You begin welding the turret's armor down.</span>")
+				if(WT.do_weld(user, src, 30,5))
+					build_step = 11
 					to_chat(user, "<span class='notice'>You weld the turret's armor down.</span>")
 
 					// The final step: create a full turret

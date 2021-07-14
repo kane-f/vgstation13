@@ -147,15 +147,14 @@
 		new_target = pick(new_targets)
 	return new_target
 
-/obj/machinery/turret/proc/createCover()
-		src.cover = new /obj/machinery/turretcover(src.loc)
-		src.cover.host = src
-
 /obj/machinery/turret/process()
 	if(stat & (NOPOWER|BROKEN))
 		// if the turret has no power or is broken, make the turret pop down if it hasn't already
 		popDown()
 		return
+	if(src.cover==null)
+		src.cover = new /obj/machinery/turretcover(src.loc)
+		src.cover.host = src
 	if(!enabled)
 		if(raised && !raising)
 			popDown()
@@ -229,7 +228,7 @@
 /obj/machinery/turret/proc/popUp() // pops the turret up
 	if(raising || raised)
 		return
-	if(stat & BROKEN || !cover)
+	if(stat & BROKEN)
 		return
 	invisibility=0
 	raising=1
@@ -245,7 +244,7 @@
 /obj/machinery/turret/proc/popDown() // pops the turret down
 	if(raising || !raised)
 		return
-	if(stat & BROKEN || !cover)
+	if(stat & BROKEN)
 		return
 	layer = OBJ_LAYER
 	raising=1
