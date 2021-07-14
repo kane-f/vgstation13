@@ -213,9 +213,18 @@ Status: []<BR>"},
 			if(prob(75))
 				new /obj/item/stack/sheet/metal(loc, rand(2, 6))
 				salvaged++
-			if(prob(50))
-				new /obj/item/device/assembly/prox_sensor(get_turf(src))
-				salvaged++
+			if(assembly1)
+				if(prob(50))
+					var/obj/item/I = assembly1
+					I.forceMove(get_turf(src))
+					assembly1 = null
+					salvaged++
+			if(assembly2)
+				if(prob(50))
+					var/obj/item/I = assembly2
+					I.forceMove(get_turf(src))
+					assembly2 = null
+					salvaged++
 			if(salvaged)
 				to_chat(user, "You remove the turret and salvage some components.")
 			else
@@ -322,13 +331,6 @@ Status: []<BR>"},
 	// the main machinery process
 
 	//set background = 1
-
-	if(src.cover==null && anchored) // if it has no cover and is anchored
-		if (stat & BROKEN) // if the turret is borked
-			qdel(cover) // delete its cover, assuming it has one. Workaround for a pesky little bug
-		else
-			src.cover = new /obj/machinery/turretcover/portable(src.loc) // if the turret has no cover and is anchored, give it a cover
-			src.cover.host = src // assign the cover its host, which would be this (src)
 
 	if(!on)
 		// if the turret is off, make it pop down
