@@ -5,8 +5,6 @@
 	var/raised = 0								// if the turret cover is "open" and the turret is raised
 	var/enabled = 1
 	var/obj/item/weapon/gun/installed = null	// the type of weapon installed
-	var/obj/item/device/assembly/assembly1 = null	// the popup assembly installed
-	var/obj/item/device/assembly/assembly2 = null	// the shooting assembly installed
 	anchored = 1
 	invisibility = INVISIBILITY_LEVEL_TWO		// the turret is invisible if it's inside its cover
 	density = 1
@@ -41,10 +39,12 @@
 /obj/machinery/turret/proc/update_gun()
 	if(!installed)
 		installed = new /obj/item/weapon/gun/energy/gun(src)
-	if(!assembly1)
-		assembly1 = new /obj/item/device/assembly/prox_sensor(src)
-	if(!assembly2)
-		assembly2 = new /obj/item/device/assembly/prox_sensor(src)
+	if(!wires.assemblies["[TURRET_POPUP]"])
+		var/obj/item/device/assembly/prox_sensor/PS = new
+		wires.Attach("[TURRET_POPUP]",PS)
+	if(!wires.assemblies["[TURRET_SHOOT]"])
+		var/obj/item/device/assembly/prox_sensor/PS = new
+		wires.Attach("[TURRET_SHOOT]",PS)
 
 /obj/machinery/turretcover
 	name = "pop-up turret cover"

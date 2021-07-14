@@ -42,6 +42,12 @@
 /obj/machinery/turret/portable/update_gun()
 	if(!installed)// if for some reason the turret has no gun (ie, admin spawned) it resorts to basic taser shots
 		installed = new /obj/item/weapon/gun/energy/taser(src)
+	if(!wires.assemblies["[TURRET_POPUP]"])
+		var/obj/item/device/assembly/prox_sensor/PS = new
+		wires.Attach("[TURRET_POPUP]",PS)
+	if(!wires.assemblies["[TURRET_SHOOT]"])
+		var/obj/item/device/assembly/prox_sensor/PS = new
+		wires.Attach("[TURRET_SHOOT]",PS)
 
 	else
 		var/obj/item/weapon/gun/energy/E = installed
@@ -218,17 +224,17 @@ Status: []<BR>"},
 			if(prob(75))
 				new /obj/item/stack/sheet/metal(loc, rand(2, 6))
 				salvaged++
-			if(assembly1)
+			if(wires.assemblies["[TURRET_POPUP]"])
 				if(prob(50))
-					var/obj/item/I = assembly1
+					var/obj/item/I = wires.assemblies["[TURRET_POPUP]"]
+					wires.Detach("[TURRET_POPUP]")
 					I.forceMove(get_turf(src))
-					assembly1 = null
 					salvaged++
-			if(assembly2)
+			if(wires.assemblies["[TURRET_SHOOT]"])
 				if(prob(50))
-					var/obj/item/I = assembly2
+					var/obj/item/I = wires.assemblies["[TURRET_SHOOT]"]
+					wires.Detach("[TURRET_SHOOT]")
 					I.forceMove(get_turf(src))
-					assembly2 = null
 					salvaged++
 			if(salvaged)
 				to_chat(user, "You remove the turret and salvage some components.")
@@ -566,6 +572,8 @@ Status: []<BR>"},
 	var/build_step = 0 // the current step in the building process
 	var/finish_name="turret" // the name applied to the product turret
 	var/obj/item/weapon/gun/energy/installed = null // the gun installed
+	var/obj/item/device/assembly/assembly1 = null	// the popup assembly installed
+	var/obj/item/device/assembly/assembly2 = null	// the shooting assembly installed
 	machine_flags = SHUTTLEWRENCH
 
 
@@ -742,6 +750,8 @@ Status: []<BR>"},
 					var/obj/machinery/turret/portable/Turret = new/obj/machinery/turret/portable(locate(x,y,z))
 					Turret.name = finish_name
 					Turret.installed = src.installed
+					Turret.wires.Attach("[TURRET_POPUP]",assembly1)
+					Turret.wires.Attach("[TURRET_SHOOT]",assembly2)
 					installed.forceMove(Turret)
 					Turret.update_gun()
 					qdel(src)
