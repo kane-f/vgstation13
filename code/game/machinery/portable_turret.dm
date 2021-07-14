@@ -39,7 +39,7 @@
 	cover = new /obj/machinery/turretcover/portable(loc)
 	cover.host = src
 
-/obj/machinery/turret/portable/update_gun()
+/obj/machinery/turret/portable/update_contents()
 	if(!installed)// if for some reason the turret has no gun (ie, admin spawned) it resorts to basic taser shots
 		installed = new /obj/item/weapon/gun/energy/taser(src)
 	if(!wires.assemblies["[TURRET_POPUP]"])
@@ -753,7 +753,7 @@ Status: []<BR>"},
 					Turret.wires.Attach("[TURRET_POPUP]",assembly1)
 					Turret.wires.Attach("[TURRET_SHOOT]",assembly2)
 					installed.forceMove(Turret)
-					Turret.update_gun()
+					Turret.update_contents()
 					qdel(src)
 
 			else if(iscrowbar(W))

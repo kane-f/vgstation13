@@ -4149,7 +4149,7 @@
 				var/obj/machinery/turret/portable/Turret = new(get_turf(usr))
 				Turret.installed = gun
 				gun.forceMove(Turret)
-				Turret.update_gun()
+				Turret.update_contents()
 				var/emag = input("Emag the turret?") in list("No", "Yes")
 				if(emag=="Yes")
 					Turret.emag(usr)

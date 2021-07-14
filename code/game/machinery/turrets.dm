@@ -34,9 +34,9 @@
 	..()
 	turretwires = new /datum/wires/turret/turretwires
 	spawn(10)
-		update_gun()
+		update_contents()
 
-/obj/machinery/turret/proc/update_gun()
+/obj/machinery/turret/proc/update_contents()
 	if(!installed)
 		installed = new /obj/item/weapon/gun/energy/gun(src)
 	if(!wires.assemblies["[TURRET_POPUP]"])
@@ -695,6 +695,12 @@
 /obj/machinery/turret/centcomm
 	name = "turret"
 
-/obj/machinery/turret/centcomm/update_gun()
+/obj/machinery/turret/centcomm/update_contents()
 	if(!installed)
 		installed = new /obj/item/weapon/gun/energy/laser/cannon(src)
+	if(!wires.assemblies["[TURRET_POPUP]"])
+		var/obj/item/device/assembly/prox_sensor/PS = new
+		wires.Attach("[TURRET_POPUP]",PS)
+	if(!wires.assemblies["[TURRET_SHOOT]"])
+		var/obj/item/device/assembly/prox_sensor/PS = new
+		wires.Attach("[TURRET_SHOOT]",PS)
