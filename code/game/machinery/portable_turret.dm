@@ -629,34 +629,47 @@ Status: []<BR>"},
 				return
 
 		if(4)
-			if(isprox(W))
+			if(iassembly(W))
 				if(!user.drop_item(W, src))
 					to_chat(user, "<span class='warning'>You can't let go of \the [W]!</span>")
 					return
 				playsound(src, 'sound/items/Deconstruct.ogg', 100, 1)
+				assembly1 = W
 				build_step = 5
-				to_chat(user, "<span class='notice'>You add the prox sensor to the turret.</span>")
+				to_chat(user, "<span class='notice'>You add \the [W] to the turret.</span>")
+				qdel(W)
+				return
+		
+		if(5)
+			if(iassembly(W))
+				if(!user.drop_item(W, src))
+					to_chat(user, "<span class='warning'>You can't let go of \the [W]!</span>")
+					return
+				playsound(src, 'sound/items/Deconstruct.ogg', 100, 1)
+				assembly2 = W
+				build_step = 6
+				to_chat(user, "<span class='notice'>You add \the [W] to the turret.</span>")
 				qdel(W)
 				return
 
 			// attack_hand() removes the gun
 
-		if(5)
+		if(6)
 			if(W.is_screwdriver(user))
 				W.playtoolsound(src, 100)
-				build_step = 6
+				build_step = 7
 				to_chat(user, "<span class='notice'>You close the internal access hatch.</span>")
 				return
 
 			// attack_hand() removes the prox sensor
 
-		if(6)
+		if(7)
 			if(istype(W, /obj/item/stack/sheet/metal))
 				var/obj/item/stack/sheet/metal/stack = W
 				if(stack.use(2))
 					playsound(src, 'sound/items/Deconstruct.ogg', 100, 1)
 					to_chat(user, "<span class='notice'>You add some metal armor to the exterior frame.</span>")
-					build_step = 7
+					build_step = 8
 					return
 				else
 					to_chat(user, "<span class='warning'>You need at least 2 [stack] to add external armor.</span>")
@@ -664,16 +677,16 @@ Status: []<BR>"},
 
 			else if(W.is_screwdriver(user))
 				W.playtoolsound(src, 100)
-				build_step = 5
+				build_step = 6
 				to_chat(user, "You open the internal access hatch.")
 				return
 
-		if(7)
+		if(8)
 			if(iswelder(W))
 				var/obj/item/tool/weldingtool/WT = W
 				to_chat(user, "<span class='notice'>You begin welding the turret's armor down.</span>")
 				if(WT.do_weld(user, src, 30,5))
-					build_step = 8
+					build_step = 9
 					to_chat(user, "<span class='notice'>You weld the turret's armor down.</span>")
 
 					// The final step: create a full turret
@@ -688,7 +701,7 @@ Status: []<BR>"},
 				W.playtoolsound(src, 75)
 				to_chat(user, "You pry off the turret's exterior armor.")
 				new /obj/item/stack/sheet/metal(loc, 2)
-				build_step = 6
+				build_step = 7
 				return
 
 	if (istype(W, /obj/item/weapon/pen)) // you can rename turrets like bots!
@@ -724,10 +737,16 @@ Status: []<BR>"},
 			installed = null
 
 		if(5)
-			to_chat(user, "You remove the prox sensor from the turret frame.")
-			var/obj/item/device/assembly/prox_sensor/P = new(user.loc)
-			user.put_in_hands(P)
+			to_chat(user, "You remove the [assembly1] from the turret frame.")
+			assembly1.forceMove(user.loc)
+			user.put_in_hands(assembly1)
 			build_step = 4
+
+		if(6)
+			to_chat(user, "You remove the [assembly2] from the turret frame.")
+			assembly2.forceMove(user.loc)
+			user.put_in_hands(assembly2)
+			build_step = 5
 
 
 

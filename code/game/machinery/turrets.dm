@@ -5,6 +5,8 @@
 	var/raised = 0								// if the turret cover is "open" and the turret is raised
 	var/enabled = 1
 	var/obj/item/weapon/gun/installed = null	// the type of weapon installed
+	var/obj/item/device/assembly/assembly1 = null	// the popup assembly installed
+	var/obj/item/device/assembly/assembly2 = null	// the shooting assembly installed
 	anchored = 1
 	invisibility = INVISIBILITY_LEVEL_TWO		// the turret is invisible if it's inside its cover
 	density = 1
@@ -27,16 +29,22 @@
 	var/atom/movable/cur_target
 	var/targeting_active = 0
 
+	var/datum/wires/turret/turretwires			// the wires for interacting with turret functions
 
 /obj/machinery/turret/New()
 //	targets = new
 	..()
+	turretwires = new /datum/wires/turret/turretwires
 	spawn(10)
 		update_gun()
 
 /obj/machinery/turret/proc/update_gun()
 	if(!installed)
 		installed = new /obj/item/weapon/gun/energy/gun(src)
+	if(!assembly1)
+		assembly1 = new /obj/item/device/assembly/prox_sensor(src)
+	if(!assembly2)
+		assembly2 = new /obj/item/device/assembly/prox_sensor(src)
 
 /obj/machinery/turretcover
 	name = "pop-up turret cover"
@@ -74,12 +82,14 @@
 		switch(lethal)
 			if(1)
 				EG.mode = 1
+				turretwires.lethal = 1
 				EG.charge_cost = 100
 				EG.fire_sound = 'sound/weapons/Laser.ogg'
 				EG.projectile_type = "/obj/item/projectile/beam"
 				EG.modifystate = "energykill"
 			if(0)
 				EG.mode = 0
+				turretwires.lethal = 0
 				EG.charge_cost = 100
 				EG.fire_sound = 'sound/weapons/Taser.ogg'
 				EG.projectile_type = "/obj/item/projectile/energy/electrode"
