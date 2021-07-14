@@ -79,6 +79,8 @@
 	. = ..()
 	if (.)
 		return
+	if(panel_open)
+		wires.Interact(user)
 	var/dat
 
 	// The browse() text, similar to ED-209s and beepskies.
@@ -195,6 +197,9 @@ Status: []<BR>"},
 			on = 1 // turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
 
 /obj/machinery/turret/portable/attackby(obj/item/W as obj, mob/user as mob)
+	if(W.is_screwdriver(user))
+		togglePanelOpen(W,user)
+	
 	if(stat & BROKEN)
 		if(iscrowbar(W))
 
