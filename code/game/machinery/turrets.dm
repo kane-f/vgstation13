@@ -40,12 +40,14 @@
 	if(!installed)
 		installed = new /obj/item/weapon/gun/energy/gun(src)
 	if(!wires.assemblies["[TURRET_POPUP]"])
-		var/obj/item/device/assembly/prox_sensor/PS = new
-		PS.constant_pulse = FALSE
-		wires.Attach("[TURRET_POPUP]",PS)
+		var/obj/item/device/assembly/prox_sensor/PS1 = new
+		PS1.constant_pulse = FALSE
+		PS1.range = 7
+		wires.Attach("[TURRET_POPUP]",PS1)
 	if(!wires.assemblies["[TURRET_SHOOT]"])
-		var/obj/item/device/assembly/prox_sensor/PS = new
-		wires.Attach("[TURRET_SHOOT]",PS)
+		var/obj/item/device/assembly/prox_sensor/PS2 = new
+		PS2.range = 7
+		wires.Attach("[TURRET_SHOOT]",PS2)
 
 /obj/machinery/turretcover
 	name = "pop-up turret cover"

@@ -45,9 +45,11 @@
 	if(!wires.assemblies["[TURRET_POPUP]"])
 		var/obj/item/device/assembly/prox_sensor/PS = new
 		PS.constant_pulse = FALSE
+		PS.range = 7
 		wires.Attach("[TURRET_POPUP]",PS)
 	if(!wires.assemblies["[TURRET_SHOOT]"])
 		var/obj/item/device/assembly/prox_sensor/PS = new
+		PS.range = 7
 		wires.Attach("[TURRET_SHOOT]",PS)
 
 	else
@@ -751,9 +753,19 @@ Status: []<BR>"},
 					var/obj/machinery/turret/portable/Turret = new/obj/machinery/turret/portable(locate(x,y,z))
 					Turret.name = finish_name
 					Turret.installed = src.installed
-					assembly1.constant_pulse = FALSE
-					Turret.wires.Attach("[TURRET_POPUP]",assembly1)
-					Turret.wires.Attach("[TURRET_SHOOT]",assembly2)
+					if(isprox(assembly1))
+						var/obj/item/device/prox_sensor/PS1 = assembly1
+						PS1.range = 7
+						PS1.constant_pulse = FALSE
+						Turret.wires.Attach("[TURRET_POPUP]",PS1)
+					else
+						Turret.wires.Attach("[TURRET_POPUP]",assembly1)
+					if(isprox(assembly2))
+						var/obj/item/device/prox_sensor/PS2 = assembly2
+						PS2.range = 7
+						Turret.wires.Attach("[TURRET_SHOOT]",PS2)
+					else
+						Turret.wires.Attach("[TURRET_SHOOT]",assembly2)
 					installed.forceMove(Turret)
 					Turret.update_contents()
 					qdel(src)
